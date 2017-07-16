@@ -1,6 +1,6 @@
 # WPKit Registry
 
-This is a Themosis PHP Component that handles Post Type and Taxonomy registration.
+This is a Themosis PHP Component that handles Post Type and Taxonomy Registration.
 
 Themosis already has a PostTypeBuilder and TaxonomyBuilder but this repo just simplifies the process by using Doctrine Inflector so that the only argument required to generate a PostType or Taxonomy is the name. 
 

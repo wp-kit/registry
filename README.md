@@ -1,18 +1,20 @@
-# WPKit Registry
+# wp-kit/registry
 
-This is a Themosis PHP Component that handles Post Type and Taxonomy Registration.
+This is a ```Themosis``` PHP Component that handles ```PostType``` and ```Taxonomy``` registration.
 
-Themosis already has a PostTypeBuilder and TaxonomyBuilder but this repo just simplifies the process by using Doctrine Inflector so that the only argument required to generate a PostType or Taxonomy is the name. 
+```Themosis``` already has a ```PostTypeBuilder``` and a ```TaxonomyBuilder``` but this repo just simplifies the process by using ```doctrine/inflector``` so that the only argument required to generate a ```PostType``` or ```Taxonomy``` is the name. 
 
 ## Installation
 
-If you're using Themosis, install via composer in the Themosis route folder, otherwise install in your theme folder:
+Install via ```Composer``` in the root of your ```Themosis``` installation:
 
 ```php
 composer require "wp-kit/registry"
 ```
 
-## Registering Service Provider
+## Setup
+
+### Add Service Provider
 
 **Within Themosis Theme**
 
@@ -29,16 +31,16 @@ return [
 ];
 ```
 
-## Using PostTypeBuilder / TaxonomyBuilder
+## Usage
 
-Just as within Themosis, we add a file within resources but instead of calling the ::make method we call the ::generate method:
+Just as within ```Themosis```, we add a file within resources but instead of calling the ```::make``` method we call the ```::generate``` method:
 
 ```php
 // File stored in resources/admin/books.php
 PostType::generate('books');
 ```
 
-Exactly the same approach can be used for Taxonomies:
+Exactly the same approach can be used for ```Taxonomies```:
 
 ```php
 // File stored in resources/admin/authors.php
@@ -53,4 +55,4 @@ PHP 5.6+
 
 ## License
 
-WPKit Registry is open-sourced software licensed under the MIT License.
+wp-kit/registry is open-sourced software licensed under the MIT License.

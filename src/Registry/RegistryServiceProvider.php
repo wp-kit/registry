@@ -1,6 +1,6 @@
 <?php
 	
-	namespace WPKit\Registry\Providers;
+	namespace WPKit\Registry;
 	
 	use Illuminate\Support\ServiceProvider;
 	use PostTypes\PostType as Service;

@@ -29,7 +29,7 @@ class Registration {
 	    
 	    $this->name = ! empty( $args['name'] ) ? $args['name'] : Inflector::ucwords($this->slug);
 	    $this->plural = ! empty( $args['plural'] ) ? $args['plural'] : ( $this->plural ? $this->plural : Inflector::pluralize($this->name) );
-	    $this->singular = ! empty( $args['singular'] ) ? $args['singular'] : ( $this->singular ? $this->singular :? Inflector::singularize($this->name) );
+	    $this->singular = ! empty( $args['singular'] ) ? $args['singular'] : ( $this->singular ? $this->singular : Inflector::singularize($this->name) );
 	    
 	    
 	    $this->names = [

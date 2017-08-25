@@ -27,9 +27,9 @@ class Registration {
 		    
 	    }
 	    
-	    $this->plural = ! empty( $args['plural'] ) ? $args['plural'] : ( $this->plural ? $this->plural ? Inflector::pluralize($this->name) );
-	    $this->singular = ! empty( $args['singular'] ) ? $args['singular'] : ( $this->singular ? $this->singular ? Inflector::singularize($this->name) );
-	    $this->slug = ! empty( $args['slug'] ) ? $args['slug'] : ( $this->slug ? $this->slug ? sanitize_title($this->name) );
+	    $this->plural = ! empty( $args['plural'] ) ? $args['plural'] : ( $this->plural ? $this->plural : Inflector::pluralize($this->name) );
+	    $this->singular = ! empty( $args['singular'] ) ? $args['singular'] : ( $this->singular ? $this->singular :? Inflector::singularize($this->name) );
+	    $this->slug = ! empty( $args['slug'] ) ? $args['slug'] : ( $this->slug ? $this->slug : sanitize_title($this->name) );
 	    
 	    $this->names = [
 		    'name' => $this->name,

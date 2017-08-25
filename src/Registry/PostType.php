@@ -9,7 +9,7 @@ class PostType extends Registration {
     protected function getDefaultOptions() {
 	    
 	    return array(
-			'rewrite' 		=> array( 'slug' => sanitize_title( $this->slug ) ),
+			'rewrite' 		=> array( 'slug' => $this->slug ),
 			'has_archive'   => sanitize_title( $this->plural ),
 	    );
 	    

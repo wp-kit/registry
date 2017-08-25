@@ -3,6 +3,7 @@
 namespace WPKit\Registry;
 
 use Doctrine\Common\Inflector\Inflector;
+use Exception;
 
 class Registration {
     
@@ -15,6 +16,16 @@ class Registration {
     private $names = array();
     
     public function __construct( $args = array() ) {
+	    
+	    $args = is_array($args) ? $args : ['name' => $args];
+	    
+	    $this->name = ! empty( $args['name'] ) ? $args['name'] : $this->name;
+	    
+	    if( ! $this->name ) {
+		    
+		    throw new Exception( 'No name given for registration ' . get_called_class() );
+		    
+	    }
 	    
 	    $this->plural = ! empty( $args['plural'] ) ? $args['plural'] : ( $this->plural ? $this->plural ? Inflector::pluralize($this->name) );
 	    $this->singular = ! empty( $args['singular'] ) ? $args['singular'] : ( $this->singular ? $this->singular ? Inflector::singularize($this->name) );

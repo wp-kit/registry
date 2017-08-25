@@ -21,7 +21,7 @@
 		
 		protected function registerPostType($key, $post_type) {
 			
-			$post_type = is_array( $post_type ) ? new PostType($post_type) : new $post_type();
+			$post_type = is_array( $post_type ) ? new PostType($post_type) : new $post_type($key);
 			
 			if( class_exists( PostTypeFacade::class ) ) {
 				
@@ -47,7 +47,7 @@
 		
 		protected function registerTaxonomy($key, $taxonomy) {
 			
-			$taxonomy = is_array( $taxonomy ) ? new Taxonomy($taxonomy) : new $taxonomy();
+			$taxonomy = is_array( $taxonomy ) ? new Taxonomy($taxonomy) : new $taxonomy($key);
 			
 			if( class_exists( TaxonomyFacade::class ) ) {
 				

@@ -17,7 +17,7 @@ class Registration {
     
     public function __construct( $args = array() ) {
 	    
-	    $args = is_array($args) ? $args : ['name' => $args];
+	    $args = is_array($args) ? $args : ['slug' => $args];
 	     
 	    $this->slug = ! empty( $args['slug'] ) ? $args['slug'] : ( $this->slug ? sanitize_title($this->slug) : null );
 	    

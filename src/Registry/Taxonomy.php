@@ -6,7 +6,9 @@ use Doctrine\Common\Inflector\Inflector;
 
 class Taxonomy extends Registration {
     
-    public $post_types = array();
+    public $post_types = array(
+	    'post'
+    );
     
     public function __construct( $args = array() ) {
 	    

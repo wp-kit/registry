@@ -18,18 +18,19 @@ class Registration {
     public function __construct( $args = array() ) {
 	    
 	    $args = is_array($args) ? $args : ['name' => $args];
+	     
+	    $this->slug = ! empty( $args['slug'] ) ? $args['slug'] : ( $this->slug ? sanitize_title($this->slug) : null );
 	    
-	    $this->name = ! empty( $args['name'] ) ? $args['name'] : $this->name;
-	    
-	    if( ! $this->name ) {
+	    if( ! $this->slug ) {
 		    
-		    throw new Exception( 'No name given for registration ' . get_called_class() );
+		    throw new Exception( 'No slug given for registration ' . get_called_class() );
 		    
 	    }
 	    
+	    $this->name = ! empty( $args['name'] ) ? $args['name'] : Inflector::ucwords($this->slug);
 	    $this->plural = ! empty( $args['plural'] ) ? $args['plural'] : ( $this->plural ? $this->plural : Inflector::pluralize($this->name) );
 	    $this->singular = ! empty( $args['singular'] ) ? $args['singular'] : ( $this->singular ? $this->singular :? Inflector::singularize($this->name) );
-	    $this->slug = ! empty( $args['slug'] ) ? $args['slug'] : ( $this->slug ? $this->slug : sanitize_title($this->name) );
+	    
 	    
 	    $this->names = [
 		    'name' => $this->name,

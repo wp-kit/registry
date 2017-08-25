@@ -1,8 +1,8 @@
 {
 	"name": "wp-kit/registry",
-	"description": "A Themosis PHP Component that handles Post Type and Taxonomy registration",
-	"keywords": ["wordpress", "themosis", "oop", "posttype", "taxonomy"],
-	"homepage" : "https://github.com/wp-kit/session",
+	"description": "A wp-kit component that handles Post Type and Taxonomy registration",
+	"keywords": ["wordpress", "wp-kit", "oop", "posttype", "taxonomy"],
+	"homepage" : "https://github.com/wp-kit/registry",
 	"license": "MIT",
 	"authors": [
 		{
@@ -13,7 +13,8 @@
 		}
 	],
 	"require": {
-        "php": ">=5.6.4"
+        "php": ">=5.6.4",
+        "jjgrainger/posttypes": "^1.1"
     },
 	"type": "library",
 	"autoload": {

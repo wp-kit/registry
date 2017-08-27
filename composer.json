@@ -1,7 +1,7 @@
 {
 	"name": "wp-kit/registry",
 	"description": "A wp-kit component that handles Post Type and Taxonomy registration",
-	"keywords": ["wordpress", "wp-kit", "oop", "posttype", "taxonomy"],
+	"keywords": ["wordpress", "wp-kit", "oop", "posttype", "taxonomy", "themosis"],
 	"homepage" : "https://github.com/wp-kit/registry",
 	"license": "MIT",
 	"authors": [

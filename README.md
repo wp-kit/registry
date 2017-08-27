@@ -2,7 +2,7 @@
 
 This is a wp-kit component that handles [```PostType```](http://framework.themosis.com/docs/1.3/posttype/) and [```Taxonomy```](http://framework.themosis.com/docs/1.3/taxonomy/) registration.
 
-If you are working with [```Themosis```](http://framework.themosis.com/), you'll notice ```Themosis``` already has a [```PostTypeBuilder```](https://github.com/themosis/framework/blob/master/src/Themosis/PostType/PostTypeBuilder.php) and a [```TaxonomyBuilder```](https://github.com/themosis/framework/blob/master/src/Themosis/Taxonomy/TaxonomyBuilder.php) but ```wp-kit/registry``` just simplifies the process by providing an OOP approach to registering ```PostTypes``` and ```Taxonomies```.
+```wp-kit/registry``` is fully comptaible with [```Themosis```](http://framework.themosis.com/) and if you are using ```Themosis``` you'll notice it already has a [```PostTypeBuilder```](https://github.com/themosis/framework/blob/master/src/Themosis/PostType/PostTypeBuilder.php) and a [```TaxonomyBuilder```](https://github.com/themosis/framework/blob/master/src/Themosis/Taxonomy/TaxonomyBuilder.php) but ```wp-kit/registry``` just simplifies the process by providing an OOP approach to registering ```PostTypes``` and ```Taxonomies```.
 
 ## Installation
 

@@ -9,6 +9,22 @@
 	
 	class RegistryServiceProvider extends ServiceProvider {
 		
+		public function boot() {
+		
+			$this->publishes([
+				__DIR__.'/../../config/registry.config.php' => config_path('registry.config.php')
+			], 'config');
+			
+			$this->publishes([
+				__DIR__.'/../../postTypes/Test.php' => posttype_path('Test.php')
+			], 'posttypes');
+			
+			$this->publishes([
+				__DIR__.'/../../taxonomies/Test.php' => taxonomy_path('Test.php')
+			], 'taxonomies');
+
+		}
+		
 		public function register() {
 			
 			$post_types = $this->app['config']['registry']['post_types'];

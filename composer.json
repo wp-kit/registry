@@ -14,7 +14,8 @@
 	],
 	"require": {
         "php": ">=5.6.4",
-        "jjgrainger/posttypes": "^1.1"
+        "jjgrainger/posttypes": "^1.1",
+        "wp-kit/utils": "dev-master"
     },
 	"type": "library",
 	"autoload": {

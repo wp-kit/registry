@@ -1,12 +1,13 @@
 # wp-kit/registry
 
-This is a [```Themosis```](http://framework.themosis.com/) PHP Component that enhances [```PostType```](http://framework.themosis.com/docs/1.3/posttype/) and [```Taxonomy```](http://framework.themosis.com/docs/1.3/taxonomy/) generation.
+This is a wp-kit component that handles [```PostType```](http://framework.themosis.com/docs/1.3/posttype/) and [```Taxonomy```](http://framework.themosis.com/docs/1.3/taxonomy/) registration.
 
-```Themosis``` already has a [```PostTypeBuilder```](https://github.com/themosis/framework/blob/master/src/Themosis/PostType/PostTypeBuilder.php) and a [```TaxonomyBuilder```](https://github.com/themosis/framework/blob/master/src/Themosis/Taxonomy/TaxonomyBuilder.php) but ```wp-kit/registry``` just simplifies the process by using [```doctrine/inflector```](https://github.com/doctrine/inflector) so that the only argument required to generate a ```PostType``` or ```Taxonomy``` is the name. 
+If you are working with [```Themosis```](http://framework.themosis.com/), you'll notice ```Themosis``` already has a [```PostTypeBuilder```](https://github.com/themosis/framework/blob/master/src/Themosis/PostType/PostTypeBuilder.php) and a [```TaxonomyBuilder```](https://github.com/themosis/framework/blob/master/src/Themosis/Taxonomy/TaxonomyBuilder.php) but ```wp-kit/registry``` just simplifies the process by providing an OOP approach to registering ```PostTypes``` and ```Taxonomies```.
 
 ## Installation
 
-Install via [```Composer```](https://getcomposer.org/) in the root of your ```Themosis``` installation:
+If you're using ```Themosis```, install via [```Composer```](https://getcomposer.org/) in the ```Themosis``` route folder, otherwise install in your ```Composer``` driven theme folder:
+
 
 ```php
 composer require "wp-kit/registry"
@@ -16,36 +17,29 @@ composer require "wp-kit/registry"
 
 ### Add Service Provider
 
-**Within Themosis Theme**
-
 Just register the service provider and facade in the providers config and theme config:
 
 ```php
-//inside themosis-theme/resources/config/providers.config.php
+//inside theme/resources/config/providers.config.php
 
 return [
     //
-    WPKit\Registry\PostType\PostTypeServiceProvider::class,
-    WPKit\Registry\Taxonomy\TaxonomyServiceProvider::class,
+    WPKit\Registry\RegistryServiceProvider::class,
     //
 ];
 ```
 
 ## Usage
 
-Just as within ```Themosis```, we add a file within resources but instead of calling the ```::make``` method we call the [```::generate```](https://github.com/wp-kit/registry/blob/master/src/Registry/PostType/PostTypeBuilder.php#L21) method:
+### Adding Classes
 
-```php
-// File stored in resources/admin/books.php
-PostType::generate('books');
-```
+```wp-kit\registry``` comes with two classes that can extended, [```WPKit\Registry\PostType```](src/Registry/PostType.php) and [```WPKit\Registry\Taxonomy```](src/Registry/Taxonomy.php). 
 
-Exactly the same approach can be used for ```Taxonomies```:
+Any custom ```PostTypes``` and ```Taxonomies``` should be added inside ```resources/shortcodes``` within the namespace ```Theme\PostType``` or ```Theme\Taxonomy```. 
 
-```php
-// File stored in resources/admin/authors.php
-Taxonomy::generate('authors', 'books');
-```
+[Here is an example PostType class](postTypes/Test.php).
+
+[Here is an example Taxonomy class](taxonomies/Test.php).
 
 ## Requirements
 

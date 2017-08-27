@@ -29,6 +29,31 @@ return [
 ];
 ```
 
+### Add PRS4 Class Reference (Themosis Only)
+
+Just add the following line to ```resources/config/loading.config.php``` in the ```Themosis``` theme folder:
+
+```php
+'Theme\\Taxonomies\\' => themosis_path('theme.resources').'taxonomies',
+'Theme\\PostTypes\\' => themosis_path('theme.resources').'postTypes',
+```
+
+### Add Config & View File
+
+The recommended method of installing config files for ```wp-kit``` components is via ```wp-kit/vendor-publish``` command.
+
+First, [install WP CLI](http://wp-cli.org/), and then install the package via:
+
+```wp package install wp-kit/vendor-publish```
+
+Once installed you can run:
+
+```wp kit vendor:publish```
+
+For more information, please visit [wp-kit/vendor-publish](https://github.com/wp-kit/vendor-publish).
+
+Alternatively, you can place the [config file(s)](config), [shortcode file(s)](shortcodes) and [view file(s)](views) in your ```theme/resources/config```, ```theme/resources/shortcodes``` and ```theme/resources/views``` directories manually.
+
 ## Usage
 
 ### Adding Classes

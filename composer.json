@@ -15,19 +15,12 @@
 	"require": {
         "php": ">=5.6.4",
         "jjgrainger/posttypes": "^1.1",
-        "wp-kit/utils": "dev-master"
+        "wp-kit/utils": "2.*"
     },
 	"type": "library",
 	"autoload": {
         "psr-4": {
             "WPKit\\Registry\\": "src/Registry" 
         }
-    },
-    "config": {
-		"preferred-install": "dist"
-	},
-	"repositories": [
-	],
-	"scripts": {
-	}
+    }
 }

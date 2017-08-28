@@ -9,6 +9,11 @@
 	
 	class RegistryServiceProvider extends ServiceProvider {
 		
+		/**
+	     * Boot the service provider.
+	     *
+	     * @return void
+	     */
 		public function boot() {
 		
 			$this->publishes([
@@ -25,6 +30,11 @@
 
 		}
 		
+		/**
+	     * Register the service provider.
+	     *
+	     * @return void
+	     */
 		public function register() {
 			
 			$post_types = $this->app['config']['registry']['post_types'];
@@ -35,10 +45,20 @@
 			
 		}
 		
+		/**
+	     * Register a post type
+	     *
+	     * @param string $key
+	     * @param string|array $post_type
+	     * @return void
+	     */
 		protected function registerPostType($key, $post_type) {
 			
 			$post_type = is_array( $post_type ) ? new PostType($post_type) : new $post_type($key);
 			
+			/**
+			 * Check if we're using Themosis
+			**/
 			if( class_exists( PostTypeFacade::class ) ) {
 				
 				PostTypeFacade::make($post_type->get('slug'), $post_type->get('plural'), $post_type->get('singular'))->set(array_merge($post_type->get('options'), [
@@ -61,10 +81,20 @@
 			
 		}
 		
+		/**
+	     * Register a taxonomy
+	     *
+	     * @param string $key
+	     * @param string|array $taxonomy
+	     * @return void
+	     */
 		protected function registerTaxonomy($key, $taxonomy) {
 			
 			$taxonomy = is_array( $taxonomy ) ? new Taxonomy($taxonomy) : new $taxonomy($key);
 			
+			/**
+			 * Check if we're using Themosis
+			**/
 			if( class_exists( TaxonomyFacade::class ) ) {
 				
 				TaxonomyFacade::make($taxonomy->get('slug'), $taxonomy->get('post_types'), $taxonomy->get('plural'), $taxonomy->get('singular'))->set($taxonomy->get('options'));

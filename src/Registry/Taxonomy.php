@@ -2,14 +2,23 @@
 
 namespace WPKit\Registry;
 
-use Doctrine\Common\Inflector\Inflector;
-
 class Taxonomy extends Registration {
     
+    /**
+     * The post types to register taxonomy on
+     *
+     * @var array
+     */
     public $post_types = array(
 	    'post'
     );
     
+    /**
+     * The constructor, it runs the whole registration for taxonomy
+     *
+     * @param array $args
+     * @return void
+	 */
     public function __construct( $args = array() ) {
 	    
 	    parent::__construct( $args );
@@ -18,6 +27,11 @@ class Taxonomy extends Registration {
 	    
     }
     
+    /**
+     * Retrieve default options for register_taxonomy function
+     *
+     * @return array
+	 */
     protected function getDefaultOptions() {
 	    
 	    return array(
@@ -26,6 +40,11 @@ class Taxonomy extends Registration {
 	    
     }
     
+    /**
+     * Retrieve default labels for register_taxonomy function
+     *
+     * @return array
+	 */
     protected function getDefaultLabels() {
 	    
 	    return array(

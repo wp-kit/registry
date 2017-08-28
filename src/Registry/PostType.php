@@ -4,8 +4,18 @@ namespace WPKit\Registry;
 
 class PostType extends Registration {
     
+    /**
+     * The taxonomies to register post type on
+     *
+     * @var array
+     */
     var $taxonomies = array();
     
+    /**
+     * Retrieve default options for register_post_type function
+     *
+     * @return array
+	 */
     protected function getDefaultOptions() {
 	    
 	    return array(
@@ -15,6 +25,11 @@ class PostType extends Registration {
 	    
     }
     
+    /**
+     * Retrieve default labels for register_post_type function
+     *
+     * @return array
+	 */
     protected function getDefaultLabels() {
 	    
 	    return array(

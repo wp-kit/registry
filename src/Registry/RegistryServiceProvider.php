@@ -37,6 +37,12 @@
 	     */
 		public function register() {
 			
+			if( defined( 'WP_CLI' ) && WP_CLI ) {
+				
+				return false;
+				
+			}
+			
 			$post_types = $this->app['config']['registry']['post_types'];
 			$taxonomies = $this->app['config']['registry']['taxonomies'];
 			

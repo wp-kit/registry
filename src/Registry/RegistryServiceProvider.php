@@ -75,7 +75,7 @@
 			
 				$object = new Service($post_type->get('names'), $post_type->get('options'), $post_type->get('labels'));
 				
-				foreach( $post_type['taxonomies'] as $key => $taxonomy ) {
+				foreach( $post_type->get('taxonomies') as $key => $taxonomy ) {
 					
 					$$taxonomy = new Taxonomy($taxonomy);
 						

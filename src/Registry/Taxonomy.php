@@ -35,7 +35,7 @@ class Taxonomy extends Registration {
     protected function getDefaultOptions() {
 	    
 	    return array(
-			'rewrite' => array( 'slug' => $this->slug ),
+			'rewrite' => array( 'slug' => $this->name ),
 	    );
 	    
     }

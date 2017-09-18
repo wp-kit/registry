@@ -19,7 +19,7 @@ class PostType extends Registration {
     protected function getDefaultOptions() {
 	    
 	    return array(
-			'rewrite' 		=> array( 'slug' => $this->slug ),
+			'rewrite' 		=> array( 'slug' => $this->name ),
 			'has_archive'   => sanitize_title( $this->plural ),
 	    );
 	    
@@ -33,11 +33,11 @@ class PostType extends Registration {
     protected function getDefaultLabels() {
 	    
 	    return array(
-			'name'               => _x( $this->plural, $this->slug, 'wpkit' ),
-			'singular_name'      => _x( $this->singular, $this->slug, 'wpkit' ),
+			'name'               => _x( $this->plural, $this->name, 'wpkit' ),
+			'singular_name'      => _x( $this->singular, $this->name, 'wpkit' ),
 			'menu_name'          => _x( $this->plural, 'admin menu', 'wpkit' ),
 			'name_admin_bar'     => _x( $this->singular, 'add new on admin bar', 'wpkit' ),
-			'add_new'            => _x( 'Add New', $this->slug, 'wpkit' ),
+			'add_new'            => _x( 'Add New', $this->name, 'wpkit' ),
 			'add_new_item'       => __( 'Add New '. $this->singular, 'wpkit' ),
 			'new_item'           => __( 'New ' . $this->singular, 'wpkit' ),
 			'edit_item'          => __( 'Edit ' . $this->singular, 'wpkit' ),

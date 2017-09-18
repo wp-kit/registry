@@ -15,6 +15,13 @@ class Registration {
     public $name = null;
     
     /**
+     * The title of the registration
+     *
+     * @var string
+     */
+    public $title = null;
+    
+    /**
      * The plural name of the registration
      *
      * @var string
@@ -57,26 +64,25 @@ class Registration {
 	 */
     public function __construct( $args = array() ) {
 	    
-	    $args = is_array($args) ? $args : ['slug' => $args];
+	    $args = is_array($args) ? $args : ['name' => $args];
 	     
-	    $this->slug = ! empty( $args['slug'] ) ? $args['slug'] : ( $this->slug ? sanitize_title($this->slug) : null );
+	    $this->name = ! empty( $args['name'] ) ? $args['name'] : ( $this->name ? sanitize_title($this->name) : null );
 	    
-	    if( ! $this->slug ) {
+	    if( ! $this->name ) {
 		    
-		    throw new Exception( 'No slug given for registration ' . get_called_class() );
+		    throw new Exception( 'No name given for registration ' . get_called_class() );
 		    
 	    }
 	    
-	    $this->name = ! empty( $args['name'] ) ? $args['name'] : Inflector::ucwords($this->slug);
-	    $this->plural = ! empty( $args['plural'] ) ? $args['plural'] : ( $this->plural ? $this->plural : Inflector::pluralize($this->name) );
-	    $this->singular = ! empty( $args['singular'] ) ? $args['singular'] : ( $this->singular ? $this->singular : Inflector::singularize($this->name) );
+	    $this->title = ! empty( $args['title'] ) ? $args['title'] : Inflector::ucwords(str_replace('_', ' ', $this->name));
+	    $this->plural = ! empty( $args['plural'] ) ? $args['plural'] : ( $this->plural ? $this->plural : Inflector::pluralize($this->title) );
+	    $this->singular = ! empty( $args['singular'] ) ? $args['singular'] : ( $this->singular ? $this->singular : Inflector::singularize($this->title) );
 	    
 	    
 	    $this->names = [
 		    'name' => $this->name,
 		    'singular' => $this->singular,
-		    'plural' => $this->plural,
-		    'slug' => $this->slug
+		    'plural' => $this->plural
 	    ];
 	    
 	    $this->options = array_merge($this->getDefaultOptions(), ! empty( $args['options'] ) ? $args['options'] : $this->options);

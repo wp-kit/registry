@@ -67,7 +67,7 @@
 			**/
 			if( class_exists( PostTypeFacade::class ) ) {
 				
-				PostTypeFacade::make($post_type->get('slug'), $post_type->get('plural'), $post_type->get('singular'))->set(array_merge($post_type->get('options'), [
+				PostTypeFacade::make($post_type->get('name'), $post_type->get('plural'), $post_type->get('singular'))->set(array_merge($post_type->get('options'), [
 					'labels' => $post_type->get('labels')
 				]));
 				
@@ -79,7 +79,7 @@
 					
 					$$taxonomy = new Taxonomy($taxonomy);
 						
-					$object->taxonomy($taxonomy->get('slug'), $taxonomy->get('options'));
+					$object->taxonomy($taxonomy->get('name'), $taxonomy->get('options'));
 					
 				}
 				
@@ -103,7 +103,7 @@
 			**/
 			if( class_exists( TaxonomyFacade::class ) ) {
 				
-				TaxonomyFacade::make($taxonomy->get('slug'), $taxonomy->get('post_types'), $taxonomy->get('plural'), $taxonomy->get('singular'))->set($taxonomy->get('options'));
+				TaxonomyFacade::make($taxonomy->get('name'), $taxonomy->get('post_types'), $taxonomy->get('plural'), $taxonomy->get('singular'))->set($taxonomy->get('options'));
 				
 			} else {
 			
@@ -111,7 +111,7 @@
 						
 					$post_type = new Service($post_type);
 					
-					$post_type->taxonomy($taxonomy->get('slug'), $taxonomy->get('options'));
+					$post_type->taxonomy($taxonomy->get('name'), $taxonomy->get('options'));
 					
 				}
 				

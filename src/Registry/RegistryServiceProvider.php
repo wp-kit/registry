@@ -77,7 +77,7 @@
 				
 				foreach( $post_type->get('taxonomies') as $key => $taxonomy ) {
 					
-					$$taxonomy = new Taxonomy($taxonomy);
+					$taxonomy = new Taxonomy($taxonomy);
 						
 					$object->taxonomy($taxonomy->get('name'), $taxonomy->get('options'));
 					

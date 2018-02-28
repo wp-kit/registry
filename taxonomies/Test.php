@@ -6,11 +6,15 @@ use WPKit\Registry\Taxonomy;
 
 class Test extends Taxonomy {
 	
-	/**
-     * The post types to register taxonomy on
-     *
-     * @var array
-     */
+	var $name = 'test';
+	var $plural = 'tests';
+	var $singular = 'test';
+	var $options = [
+		'public' => false
+	];
+	var $labels = [
+		'menu_name' => 'The Test Categories',
+	];
 	var $post_types = [
 		'test'
 	];

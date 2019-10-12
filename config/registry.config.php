@@ -24,6 +24,18 @@ return [
     */
     'taxonomies' => [
 	    'test' => Theme\Taxonomies\Test::class
+    ],
+	
+    /*
+    |--------------------------------------------------------------------------
+    | Registry
+    |--------------------------------------------------------------------------
+    |
+    | Tell the Service Provider which taxonomies to register
+    |
+    */
+    'blocks' => [
+	    'test' => Theme\Blocks\Test::class
     ]
 
 ];

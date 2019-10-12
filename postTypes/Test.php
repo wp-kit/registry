@@ -1,6 +1,6 @@
 <?php
 
-namespace Theme\Taxonomies;
+namespace Theme\PostTypes;
 
 use WPKit\Registry\PostType;
 

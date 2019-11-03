@@ -9,6 +9,8 @@
 	
 	class RegistryServiceProvider extends ServiceProvider {
 		
+		protected $postTypes = [];
+		
 		/**
 	     * Boot the service provider.
 	     *
@@ -58,9 +60,9 @@
 	     * @param string|array $post_type
 	     * @return void
 	     */
-		protected function registerPostType($key, $post_type) {
+		protected function registerPostType($name, $post_type) {
 			
-			$post_type = is_array( $post_type ) ? new PostType($post_type) : new $post_type($key);
+			$post_type = is_array( $post_type ) ? new PostType($post_type) : new $post_type($name);
 			
 			/**
 			 * Check if we're using Themosis
@@ -82,6 +84,8 @@
 					$object->taxonomy($taxonomy->get('name'), $taxonomy->get('options'));
 					
 				}
+				
+				$this->postTypes[$name] = $object;
 				
 			}
 			
@@ -109,7 +113,7 @@
 			
 				foreach( $taxonomy->get('post_types') as $post_type ) {
 						
-					$post_type = new Service($post_type);
+					$post_type = ! empty( $this->postTypes[$post_type] ) ? $this->postTypes[$post_type] : new Service($post_type);
 					
 					$post_type->taxonomy($taxonomy->get('name'), $taxonomy->get('options'));
 					

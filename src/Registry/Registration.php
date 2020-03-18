@@ -74,9 +74,9 @@ class Registration {
 		    
 	    }
 	    
-	    $this->title = ! empty( $args['title'] ) ? $args['title'] : Inflector::ucwords(str_replace('_', ' ', $this->name));
-	    $this->plural = ! empty( $args['plural'] ) ? $args['plural'] : ( $this->plural ? $this->plural : Inflector::pluralize($this->title) );
-	    $this->singular = ! empty( $args['singular'] ) ? $args['singular'] : ( $this->singular ? $this->singular : Inflector::singularize($this->title) );
+	    $this->title = ! empty( $args['title'] ) ? $args['title'] : ( $this->title ?: Inflector::ucwords(str_replace('_', ' ', $this->name) ));
+	    $this->plural = ! empty( $args['plural'] ) ? $args['plural'] : ( $this->plural ?: Inflector::pluralize($this->title) );
+	    $this->singular = ! empty( $args['singular'] ) ? $args['singular'] : ( $this->singular ?: Inflector::singularize($this->title) );
 	    
 	    
 	    $this->names = [
@@ -87,6 +87,8 @@ class Registration {
 	    
 	    $this->options = array_merge($this->getDefaultOptions(), ! empty( $args['options'] ) ? $args['options'] : $this->options);
 	    $this->labels = array_merge($this->getDefaultLabels(), ! empty( $args['labels'] ) ? $args['labels'] : $this->labels);
+	    
+	    $this->booted();
 	    
     }
     
@@ -102,5 +104,7 @@ class Registration {
 	    return property_exists($this, $key) ? $this->$key : $default;
 	    
     }
+    
+    public function booted() {}
     
 }

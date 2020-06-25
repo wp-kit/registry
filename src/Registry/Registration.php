@@ -66,7 +66,7 @@ class Registration {
 	    
 	    $args = is_array($args) ? $args : ['name' => $args];
 	     
-	    $this->name = ! empty( $args['name'] ) ? $args['name'] : ( $this->name ? sanitize_title($this->name) : null );
+	    $this->name = $this->name ? sanitize_title($this->name) : ( ! empty( $args['name'] ) ? $args['name'] : null );
 	    
 	    if( ! $this->name ) {
 		    

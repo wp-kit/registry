@@ -18,7 +18,8 @@
 	"require": {
         "php": ">=5.6.4",
         "jjgrainger/posttypes": "^1.1",
-        "wp-kit/utils": "2.*"
+        "wp-kit/utils": "2.*",
+		"doctrine/inflector": "^1.4.3"
     },
 	"type": "library",
 	"autoload": {

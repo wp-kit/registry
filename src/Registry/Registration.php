@@ -88,7 +88,7 @@ class Registration {
 	    $this->options = array_merge($this->getDefaultOptions(), ! empty( $args['options'] ) ? $args['options'] : $this->options);
 	    $this->labels = array_merge($this->getDefaultLabels(), ! empty( $args['labels'] ) ? $args['labels'] : $this->labels);
 	    
-	    $this->booted();
+	    $this->boot();
 	    
     }
     
@@ -105,6 +105,18 @@ class Registration {
 	    
     }
     
-    public function booted() {}
+    /**
+     * Booted [legacy]
+     */
+    public function booted() {
+	    
+    	    $this->boot();
+	    
+    }
+	
+    /**
+     * Boot, called after registration finishes
+     */
+    public function boot() {}
     
 }

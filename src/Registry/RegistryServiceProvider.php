@@ -85,7 +85,7 @@
 					
 				}
 				
-				$this->postTypes[$name] = $object;
+				$this->postTypes[$post_type->name] = $object;
 				
 			}
 			
